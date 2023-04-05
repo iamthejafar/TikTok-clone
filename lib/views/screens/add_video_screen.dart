@@ -15,7 +15,7 @@ class AddVideoSceen extends StatelessWidget {
   pickVideo(ImageSource src, BuildContext context) async{
     final video = await ImagePicker().pickVideo(source: src);
     if(video!=null){
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ConfirmScreen(videoFile: File(video.path),videoPath: video.path,)));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>ConfirmScreen(videoFile: File(video.path),videoPath: video.path,)));
     }
   }
 
@@ -47,7 +47,6 @@ class AddVideoSceen extends StatelessWidget {
             SimpleDialogOption(
               onPressed: (){
                 pickVideo(ImageSource.camera, context);
-
               },
               child: Row(
                 children: const[

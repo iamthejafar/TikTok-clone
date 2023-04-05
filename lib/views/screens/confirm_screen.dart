@@ -28,17 +28,15 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
 
   @override
   void initState() {
-    super.initState();
-    setState(() {
-      controller = VideoPlayerController.file(widget.videoFile);
-    });
+    controller = VideoPlayerController.file(widget.videoFile);
     initVideoController();
+    super.initState();
   }
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   Future<void> initVideoController() async {

@@ -1,10 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tiktokclone/constants.dart';
-import 'package:tiktokclone/controllers/auth_controller.dart';
 import 'package:tiktokclone/models/video_model.dart';
-import 'package:video_player/video_player.dart';
 
 
 class VideoController extends GetxController{
@@ -13,7 +10,6 @@ class VideoController extends GetxController{
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     _videoList.bindStream(firestore.collection('videos').snapshots().map((QuerySnapshot querySnapshot){
       List<VideoModel> retVal = [];
@@ -36,7 +32,6 @@ class VideoController extends GetxController{
       await firestore.collection('videos').doc(id).update({
         'likes':FieldValue.arrayUnion([uid])
       });
-
     }
   }
 }

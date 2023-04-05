@@ -8,7 +8,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tiktokclone/constants.dart';
 import 'package:tiktokclone/models/user_model.dart';
 import 'package:tiktokclone/views/screens/auth/login_screen.dart';
-import 'package:tiktokclone/views/screens/auth/signup_screen.dart';
 import 'package:tiktokclone/views/screens/home_screen.dart';
 
 
@@ -27,6 +26,10 @@ class AuthController extends GetxController{
     _user = Rx<User?>(firebaseAuth.currentUser);
     _user.bindStream(firebaseAuth.authStateChanges());
     ever(_user,_setInitialScreen);
+  }
+
+  void SignOut()async{
+    await firebaseAuth.signOut();
   }
 
   _setInitialScreen(User? user){

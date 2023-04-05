@@ -3,6 +3,7 @@ import 'package:tiktokclone/constants.dart';
 
 
 import '../../widgets/text_input_field.dart';
+import 'signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -98,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: (){
-                    print('Navigating to register');
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupScreen()));
                   },
                   child: Text(
                     'Create account',
