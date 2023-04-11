@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tiktokclone/constants.dart';
 import 'package:tiktokclone/controllers/video_controller.dart';
 import 'package:tiktokclone/views/screens/comment_screen.dart';
+import 'package:tiktokclone/views/screens/profile_screen.dart';
 import 'package:tiktokclone/views/widgets/video_player_item.dart';
 
 import '../widgets/circle_animation.dart';
@@ -20,7 +21,7 @@ class VideoScreen extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(11),
+            padding: const EdgeInsets.all(11),
             height: 50,
             width: 50,
             decoration: BoxDecoration(
@@ -54,7 +55,7 @@ class VideoScreen extends StatelessWidget {
             child: Container(
               width: 50,
               height: 50,
-              padding: EdgeInsets.all(1),
+              padding: const EdgeInsets.all(1),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(25),
@@ -95,7 +96,7 @@ class VideoScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Container(
-                              padding: EdgeInsets.only(left: 20),
+                              padding: const EdgeInsets.only(left: 20),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +104,7 @@ class VideoScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     '${data.username}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white
@@ -111,7 +112,7 @@ class VideoScreen extends StatelessWidget {
                                   ),
                                   Text(
                                     '${data.caption}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 20,
                                         color: Colors.white
                                     ),
@@ -155,10 +156,10 @@ class VideoScreen extends StatelessWidget {
                                         size: 40,
                                       ),
                                     ),
-                                    SizedBox(height: 7,),
+                                    const SizedBox(height: 7,),
                                     Text(
                                         '${data.likes!.length}',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.white,
                                             fontSize: 20
                                         )
@@ -171,15 +172,15 @@ class VideoScreen extends StatelessWidget {
                                       onTap: (){
                                         Navigator.push(context, MaterialPageRoute(builder: (context)=>CommentScreen(id: data.id!)));
                                       },
-                                      child: Icon(
+                                      child: const Icon(
                                         Icons.comment,
                                         size: 40,
                                       ),
                                     ),
-                                    SizedBox(height: 7,),
+                                    const SizedBox(height: 7,),
                                     Text(
                                         '${data.commentCount}',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.white,
                                             fontSize: 20
                                         )
@@ -192,23 +193,28 @@ class VideoScreen extends StatelessWidget {
                                       onTap: (){
 
                                       },
-                                      child: Icon(
+                                      child: const Icon(
                                         Icons.reply,
                                         size: 40,
                                       ),
                                     ),
-                                    SizedBox(height: 7,),
+                                    const SizedBox(height: 7,),
                                     Text(
                                         '${data.shareCount}',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.white,
                                             fontSize: 20
                                         )
                                     )
                                   ],
                                 ),
-                                CircleAnimation(
-                                    child:buildMusicAlbum('${data.profilephoto}')
+                                InkWell(
+                                  onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen(uid: data.uid!)));
+                                  },
+                                  child: CircleAnimation(
+                                      child:buildMusicAlbum('${data.profilephoto}')
+                                  ),
                                 )
 
                               ],

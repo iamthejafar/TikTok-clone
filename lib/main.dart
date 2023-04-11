@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tiktokclone/controllers/auth_controller.dart';
-import 'package:tiktokclone/views/screens/auth/signup_screen.dart';
 import 'constants.dart';
 
 
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: kbackgroundColor,
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }

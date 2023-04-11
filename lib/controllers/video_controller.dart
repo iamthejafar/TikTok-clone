@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:tiktokclone/constants.dart';
 import 'package:tiktokclone/models/video_model.dart';
@@ -7,6 +8,8 @@ import 'package:tiktokclone/models/video_model.dart';
 class VideoController extends GetxController{
   final Rx<List<VideoModel>> _videoList = Rx<List<VideoModel>>([]);
   List<VideoModel> get videoList => _videoList.value;
+
+  PageController pageController = PageController(initialPage: 0,viewportFraction:1);
 
   @override
   void onInit() {

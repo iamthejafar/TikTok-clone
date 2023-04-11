@@ -13,8 +13,8 @@ import 'views/screens/search_screen.dart';
 var pages = [
   VideoScreen(),
   SearchScreen(),
-  AddVideoSceen(),
-  Center(child: Text('Message ')),
+  const AddVideoSceen(),
+  const Center(child: Text('Message ')),
   ProfileScreen(uid: authController.user.uid)
 ];
 

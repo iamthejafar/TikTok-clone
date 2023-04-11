@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:tiktokclone/constants.dart';
 import 'package:tiktokclone/views/screens/auth/login_screen.dart';
@@ -11,7 +12,6 @@ class SignupScreen extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,7 +108,7 @@ class SignupScreen extends StatelessWidget {
                   height: 50,
                   decoration: BoxDecoration(
                     color: kbuttonColor,
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
                   ),
                   child: const Center(
                     child: Text(
@@ -135,7 +135,7 @@ class SignupScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
 
                     },
                     child: Text(

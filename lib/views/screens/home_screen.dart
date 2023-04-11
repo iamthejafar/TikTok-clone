@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Search'
           ),
           BottomNavigationBarItem(
-            icon: const CustomIcon(),
+            icon: CustomIcon(),
             label: ''
           ),
           BottomNavigationBarItem(

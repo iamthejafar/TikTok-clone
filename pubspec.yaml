@@ -46,6 +46,7 @@ dependencies:
   video_compress: 3.1.1
   timeago: ^3.3.0
   cached_network_image: ^3.2.3
+  modal_progress_hud_nsn: ^0.3.0
 
 dev_dependencies:
   flutter_test:

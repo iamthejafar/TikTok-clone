@@ -69,7 +69,7 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     width: MediaQuery.of(context).size.width - 20,
                     child: TextInputField(
                         controller: songController,
@@ -81,7 +81,7 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width - 20,
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: TextInputField(
                       controller: captionController,
                       labelText: 'Caption',

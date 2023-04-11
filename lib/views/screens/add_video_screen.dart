@@ -33,7 +33,7 @@ class AddVideoSceen extends StatelessWidget {
                 children: const[
                   Icon(Icons.image),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Text(
                         'Gallery',
                     style: TextStyle(
@@ -52,7 +52,7 @@ class AddVideoSceen extends StatelessWidget {
                 children: const[
                   Icon(Icons.camera_alt),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Text(
                       'Camera',
                       style: TextStyle(
@@ -71,7 +71,7 @@ class AddVideoSceen extends StatelessWidget {
                 children: const[
                   Icon(Icons.cancel),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Text(
                       'Cancel',
                       style: TextStyle(

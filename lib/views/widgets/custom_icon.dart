@@ -12,7 +12,7 @@ class CustomIcon extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            margin: EdgeInsets.only(left: 10),
+            margin: const EdgeInsets.only(left: 10),
             width: 38,
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 250, 45,108),
@@ -20,7 +20,7 @@ class CustomIcon extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(right: 10),
+            margin: const EdgeInsets.only(right: 10),
             width: 38,
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 32, 211,234),

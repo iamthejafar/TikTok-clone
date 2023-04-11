@@ -5,16 +5,22 @@ import 'package:tiktokclone/constants.dart';
 import '../../widgets/text_input_field.dart';
 import 'signup_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
+
   final TextEditingController _passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Container(
+      body: authController.getIsLoading ? const Center(child: CircularProgressIndicator()):Container(
         alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -30,19 +36,19 @@ class LoginScreen extends StatelessWidget {
             const Text(
               'Login',
               style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w700
+                  fontSize: 25,
+                  fontWeight: FontWeight.w700
               ),
             ),
             const SizedBox(height: 25,),
             Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: TextInputField(
-                controller: _emailController,
-                labelText: 'Email',
-                icon: Icons.email,
-              )
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: TextInputField(
+                  controller: _emailController,
+                  labelText: 'Email',
+                  icon: Icons.email,
+                )
             ),
             const SizedBox(
               height: 25,
@@ -72,11 +78,11 @@ class LoginScreen extends StatelessWidget {
                 height: 50,
                 decoration: BoxDecoration(
                   color: kbuttonColor,
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderRadius: const BorderRadius.all(Radius.circular(5)),
                 ),
-                child: Center(
-                  child: const Text(
-                      'Login',
+                child: const Center(
+                  child: Text(
+                    'Login',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
@@ -104,14 +110,13 @@ class LoginScreen extends StatelessWidget {
                   child: Text(
                     'Create account',
                     style: TextStyle(
-                      color: kbuttonColor,
-                      fontSize: 18
+                        color: kbuttonColor,
+                        fontSize: 18
 
                     ),
 
                   ),
                 )
-
               ],
             )
           ],

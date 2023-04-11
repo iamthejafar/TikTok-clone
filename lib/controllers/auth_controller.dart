@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tiktokclone/constants.dart';
 import 'package:tiktokclone/models/user_model.dart';
@@ -19,7 +18,14 @@ class AuthController extends GetxController{
   late Rx<User?> _user;
 
   User get user => _user.value!;
-
+  final bool _isLoading = false;
+  
+  bool get getIsLoading => _isLoading;
+  
+  void setIsLoading(bool value){
+    value = _isLoading;
+  }
+  
   @override
   void onReady() {
     super.onReady();
@@ -28,16 +34,16 @@ class AuthController extends GetxController{
     ever(_user,_setInitialScreen);
   }
 
-  void SignOut()async{
+  void signOut()async{
     await firebaseAuth.signOut();
   }
 
   _setInitialScreen(User? user){
     if(user==null){
-      Get.offAll(()=>LoginScreen());
+      Get.offAll(()=>const LoginScreen());
     }
     else{
-      Get.offAll(()=>HomeScreen());
+      Get.offAll(()=>const HomeScreen());
     }
   }
 
@@ -55,7 +61,7 @@ class AuthController extends GetxController{
   }
 
   Future<String> _uploadToStorage(File image) async{
-    Reference reference = await firebaseStorage
+    Reference reference = firebaseStorage
         .ref()
         .child('ProfilePics')
         .child(firebaseAuth.currentUser!.uid);
@@ -96,9 +102,7 @@ class AuthController extends GetxController{
     try{
       if(email.isNotEmpty&&
       password.isNotEmpty){
-        await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
-        print('Logged in ');
-
+        await firebaseAuth.signInWithEmailAndPassword(email: email, password: password).then((value) => setIsLoading(false));
       }
       else{
         Get.snackbar('Error Logging in.', 'Please Enter all fields');
